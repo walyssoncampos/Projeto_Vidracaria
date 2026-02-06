@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Porta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Orçamento de Porta</h1>
+
+        <form id="formPorta">
+            <label>Nome do cliente</label>
+            <input type="text" id="nome">
+
+            <label>Largura (cm)</label>
+            <input type="number" id="largura" required>
+
+            <label>Altura (cm)</label>
+            <input type="number" id="altura" required>
+
+            <label>Tipo de porta</label>
+            <select id="tipoPorta">
+                <option value="duas_folhas">De correr (2 Folhas)</option>
+                <option value="tres_folhas">De correr (3 Folhas)</option>
+                <option value="quatro_folhas">De correr (4 Folhas)</option>
+                <option value="abrir_pivotante">De abrir (Pivotante)</option>
+                <option value="abrir_dobradica">De abrir (Dobradiça na lateral)</option>
+            </select>
+
+            <label>Tipo de vidro</label>
+            <select id="tipoVidro">
+                <option value="temperado1">Temperado 6mm</option>
+                <option value="temperado2">Temperado 8mm</option>
+            </select>
+
+            <label>Cor do vidro</label>
+            <select id="corVidro">
+                <option value="incolor">Incolor</option>
+                <option value="verde">Verde</option>
+                <option value="fume">Fumê</option>
+            </select>
+
+            <button type="submit">Calcular orçamento</button>
+        </form>
+
+        <a href="../index.html" class="btn-voltar">Voltar ao menu</a>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
