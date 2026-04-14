@@ -9,6 +9,11 @@ document.getElementById("formJanela").addEventListener("submit", function(e) {
 
   let precoMetro;
 
+  if (!largura || !altura || precoMetro === 0) {
+      alert("Preencha todos os campos corretamente!");
+      return;
+  }
+
   /*CONDIÇÕES PARA VIDRO 6MM */
 
   if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoJanela === "duas_folhas" ) {
@@ -86,8 +91,8 @@ document.getElementById("formJanela").addEventListener("submit", function(e) {
   const area = (largura/100) * (altura/100);
   const valor = area * precoMetro;
 
-  document.getElementById("resultado").innerHTML = `Valor estimado: R$ ${valor.toFixed(2)} <br>
-  <small>*Valor sujeito à visita técnica. O valor da instalação não está incluso.</small> <br><br>
+  document.getElementById("resultado").innerHTML = `Valor estimado: R$ ${valor.toFixed(2)} \n
+  <small>*Valor sujeito à visita técnica. O valor da instalação não está incluso.</small> \n\n
   <a href="${gerarWhatsApp(valor)}" target="_blank">
     Enviar pelo WhatsApp
   </a>`;
@@ -100,9 +105,9 @@ function gerarWhatsApp(valor){
     const tipoVidro = document.getElementById("tipoVidro").value;
 
     const mensagem = `Olá! Gostaria de um orçamento:
-    Janela: ${tipoJanela} <br>
-    Medidas: ${largura}cm x ${altura}cm <br>
-    Vidro: ${tipoVidro} <br>
+    Janela: ${tipoJanela} \n
+    Medidas: ${largura}cm x ${altura}cm \n
+    Vidro: ${tipoVidro} \n
     Valor estimado: R$ ${valor.toFixed(2)}`;
 
     return `https://wa.me/55SEUNUMERO?text=${encodeURIComponent(mensagem)}`;
