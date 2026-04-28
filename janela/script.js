@@ -7,87 +7,50 @@ document.getElementById("formJanela").addEventListener("submit", function(e) {
   const corVidro = document.getElementById("corVidro").value;
   const tipoJanela = document.getElementById("tipoJanela").value;
 
-  let precoMetro;
+  const precos = {
+      temperado1: {
+            duas_folhas: {
+                  incolor: 180,
+                  verde: 200,
+                  fume: 250
+            },
+            quatro_folhas: {
+                  incolor: 280,
+                  verde: 320,
+                  fume: 360
+            },
+            retratil: {
+                  incolor: 300,
+                  verde: 340,
+                  fume: 380
+            }
+      },
+      temperado2: {
+            duas_folhas: {
+                  incolor: 290,
+                  verde: 330,
+                  fume: 370
+            },
+            quatro_folhas: {
+                  incolor: 380,
+                  verde: 420,
+                  fume: 460
+            },
+            retratil: {
+                  incolor: 480, 
+                  verde: 540, 
+                  fume: 600
+            }
+      }
+  };
+  
+  const precoMetro = precos[tipoVidro]?.[tipoJanela]?.[corVidro];
 
   if (!largura || !altura || precoMetro === 0) {
       alert("Preencha todos os campos corretamente!");
       return;
-  }
-
-  /*CONDIÇÕES PARA VIDRO 6MM */
-
-  if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoJanela === "duas_folhas" ) {
-        precoMetro = 180;
   } 
-  
-   else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoJanela === "duas_folhas"){
-        precoMetro = 200;
-  }
-  
-   else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoJanela === "duas_folhas"){
-        precoMetro = 250;
-  }
-
-   else if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoJanela === "quatro_folhas" ) {
-        precoMetro = 280;
-  } 
-  
-   else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoJanela === "quatro_folhas"){
-        precoMetro = 320;
-  }
-  
-   else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoJanela === "quatro_folhas"){
-        precoMetro = 360;
-  }
-
-   else if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoJanela === "retratil" ) {
-        precoMetro = 300;
-  } 
-  
-   else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoJanela === "retratil"){
-        precoMetro = 340;
-  }
-  
-   else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoJanela === "retratil"){
-        precoMetro = 380;
-  }
-
-  /*CONDIÇÕES PARA VIDRO 8MM */
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoJanela === "duas_folhas") {
-        precoMetro = 290;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoJanela === "duas_folhas"){
-        precoMetro = 330;
-  } 
-  
-  else if (tipoVidro === "temperado2" && corVidro === "fume" && tipoJanela === "duas_folhas") {
-        precoMetro = 370;
-  }
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoJanela === "quatro_folhas") {
-        precoMetro = 380;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoJanela === "quatro_folhas"){
-        precoMetro = 420;
-  } 
-  
-  else if (tipoVidro === "temperado2" && corVidro === "fume" && tipoJanela === "quatro_folhas") {
-        precoMetro = 460;
-  }
-
-  else if (tipoVidro === "temperado2" && corVidro === "incolor" && tipoJanela === "retratil"){
-      precoMetro = 480;
-  }
-
-   else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoJanela === "retratil"){
-      precoMetro = 540;
-  } else {
-      precoMetro = 600;
-  }
-
+     
   const area = (largura/100) * (altura/100);
   const valor = area * precoMetro;
 

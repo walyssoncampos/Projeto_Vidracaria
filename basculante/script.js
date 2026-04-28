@@ -7,69 +7,45 @@ document.getElementById("formBasculante").addEventListener("submit", function(e)
   const corVidro = document.getElementById("corVidro").value;
   const tipoBasculante = document.getElementById("tipoBasculante").value;
 
-  let precoMetro;
+  const precos = {
+      temperado1: {
+            basculante_com_corrente: {
+                  incolor: 115,
+                  verde: 125,
+                  fume: 150
+            },
+            maximar: {
+                  incolor: 200,
+                  verde: 250,
+                  fume: 300
+            }
+      },
+      temperado2: {
+            basculante_com_corrente: {
+                  incolor: 180,
+                  verde: 250,
+                  fume: 300
+            },
+            maximar: {
+                  incolor: 200,
+                  verde: 300,
+                  fume: 400
+            }
+      }
+  };
 
-  if (!largura || !altura || precoMetro === 0) {
+  const precoMetro = precos[tipoVidro]?.[tipoBasculante]?.[corVidro];
+
+   if (!largura || !altura || precoMetro === 0) {
       alert("Preencha todos os campos corretamente!");
       return;
-  }
-
-  /*CONDIÇÕES PARA VIDRO 6MM */
-
-  
-  if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoBasculante === "basculante_com_corrente" ) {
-        precoMetro = 115;
-  } 
-  
-  else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoBasculante === "basculante_com_corrente"){
-        precoMetro = 125;
-  }
-  
-   else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoBasculante === "basculante_com_corrente"){
-        precoMetro = 150;
-  }
-
-   else if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoBasculante === "maximar" ) {
-        precoMetro = 200;
-  } 
-  
-  else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoBasculante === "maximar"){
-        precoMetro = 250;
-  }
-  
-   else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoBasculante === "maximar"){
-        precoMetro = 300;
-  }
-
-  /*CONDIÇÕES PARA VIDRO 8MM */
-  
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoBasculante === "basculante_com_corrente") {
-        precoMetro = 180;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoBasculante === "basculante_com_corrente"){
-        precoMetro = 250;
-  }
-  else if (tipoVidro === "temperado2" && corVidro === "fume" && tipoBasculante === "basculante_com_corrente"){
-      precoMetro = 300;
-  }
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoBasculante === "maximar") {
-        precoMetro = 200;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoBasculante === "maximar"){
-        precoMetro = 300;
-  }
-  else {
-      precoMetro = 400;
   }
 
   const area = (largura/100) * (altura/100);
   const valor = area * precoMetro;
 
   document.getElementById("resultado").innerHTML = `Valor estimado: R$ ${valor.toFixed(2)}` +
-  `<p>Valor sujeito à visita técnica.<\p>` +
+  `<p>Valor sujeito à visita técnica.</p>` +
   `<p>O valor da instalação não está incluso.</p>` +
   `<a href="${gerarWhatsApp(valor)}" target="_blank">
     Enviar pelo WhatsApp

@@ -7,105 +7,61 @@ document.getElementById("formBox").addEventListener("submit", function(e) {
   const corVidro = document.getElementById("corVidro").value;
   const tipoBox = document.getElementById("tipoBox").value;
 
-  let precoMetro;
+  const precos = {
+      temperado1: {
+            duas_folhas: {
+                  incolor: 350,
+                  verde: 400,
+                  fume: 450
+            },
+            tres_folhas: {
+                  incolor: 370,
+                  verde: 430,
+                  fume: 470
+            },
+            quatro_folhas: {
+                  incolor: 390,
+                  verde: 450,
+                  fume: 490
+            },
+            abrir: {
+                  incolor: 350,
+                  verde: 410,
+                  fume: 450
+            }
 
+      },
+      temperado2: {
+            duas_folhas: {
+                  incolor: 440,
+                  verde: 500,
+                  fume: 550
+
+            },
+            tres_folhas: {
+                  incolor: 460,
+                  verde: 520,
+                  fume: 570
+            },
+            quatro_folhas: {
+                  incolor: 500,
+                  verde: 540,
+                  fume: 580
+            },
+            abrir: {
+                  incolor: 460,
+                  verde: 520,
+                  fume: 550,
+            }
+
+      }
+  };
+  
+  const precoMetro = precos[tipoVidro]?.[tipoBox]?.[corVidro];
+  
   if (!largura || !altura || precoMetro === 0) {
       alert("Preencha todos os campos corretamente!");
       return;
-  }
-
-  if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoBox === "duas_folhas" ) {
-        precoMetro = 350;
-  } 
-  
-  else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoBox === "duas_folhas"){
-        precoMetro = 400;
-  }
-  
-   else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoBox === "duas_folhas"){
-        precoMetro = 450;
-  }
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoBox === "duas_folhas") {
-        precoMetro = 440;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoBox === "duas_folhas"){
-        precoMetro = 500;
-  } 
-  
-  else if (tipoVidro === "temperado2" && corVidro === "fume" && tipoBox === "duas_folhas") {
-        precoMetro = 550;
-  }
-
-  else if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoBox === "tres_folhas"){
-        precoMetro = 370;
-  }
-  
-  else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoBox === "tres_folhas"){
-        precoMetro = 430;
-  }
-
-  else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoBox === "tres_folhas"){
-        precoMetro = 470;
-  }
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoBox === "tres_folhas") {
-        precoMetro = 460;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoBox === "tres_folhas"){
-        precoMetro = 520;
-  } 
-  
-  else if (tipoVidro === "temperado2" && corVidro === "fume" && tipoBox === "tres_folhas") {
-        precoMetro = 570;
-  }
-  //
-  else if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoBox === "quatro_folhas"){
-        precoMetro = 390;
-  }
-  
-  else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoBox === "quatro_folhas"){
-        precoMetro = 450;
-  }
-
-  else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoBox === "quatro_folhas"){
-        precoMetro = 490;
-  }
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoBox === "quatro_folhas") {
-        precoMetro = 500;
-  }  
-  
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoBox === "quatro_folhas"){
-        precoMetro = 540;
-  } 
-  
-  else if (tipoVidro === "temperado2" && corVidro === "fume" && tipoBox === "quatro_folhas") {
-        precoMetro = 580;
-  }
-  //
-  else if (tipoVidro === "temperado1" && corVidro === "incolor" && tipoBox === "abrir"){
-        precoMetro = 350;
-  }
-  
-  else if (tipoVidro === "temperado1" && corVidro === "verde" && tipoBox === "abrir"){
-        precoMetro = 410;
-  }
-
-  else if (tipoVidro === "temperado1" && corVidro === "fume" && tipoBox === "abrir"){
-        precoMetro = 450;
-  }
-
-  else if(tipoVidro === "temperado2" && corVidro === "incolor" && tipoBox === "abrir") {
-        precoMetro = 460;
-  }  
-
-  else if (tipoVidro === "temperado2" && corVidro === "verde" && tipoBox === "abrir"){
-      precoMetro = 520;
-  } else {
-      precoMetro = 550;
   }
 
   const area = (largura/100) * (altura/100);
